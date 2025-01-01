@@ -39,7 +39,6 @@ export function GlassCard({ className, children, ...props }: GlassCardProps) {
         <div className="absolute top-0 left-0 w-2/3 h-2/3 bg-[#FF2E63]/60 rounded-full mix-blend-screen blur-3xl" />
         <div className="absolute top-1/3 right-0 w-2/3 h-2/3 bg-[#00FFF5]/60 rounded-full mix-blend-screen blur-3xl" />
         <div className="absolute bottom-0 left-1/4 w-2/3 h-2/3 bg-[#8A2BE2]/60 rounded-full mix-blend-screen blur-3xl" />
-        <div className="absolute w-[500px] h-[500px] -top-48 -right-48 bg-white rounded-full mix-blend-soft-light blur-[100px] opacity-50" />
       </div>
 
       <div className="relative z-10">{children}</div>

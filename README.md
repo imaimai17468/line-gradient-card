@@ -1,34 +1,71 @@
-# Imaimai Front Template
+# 🌈 Noise Glassmorphism
 
-### Overview
-"Imaimai Front Template" is a Next.js project designed for high-performance and fast development using cutting-edge technology. With Bun as the package manager, it achieves faster build times and execution. Lefthook automates pre-commit and pre-push checks to ensure stable code quality.
+<div align="center">
+  <img src="public/og-image.png" alt="Noise Glassmorphism Preview" width="600">
 
-### Features
-- **High Performance**: Leveraging Bun for faster builds and execution compared to traditional environments.
-- **Theme Switching**: Integrated with `next-themes` for seamless dark/light theme toggling.
-- **Intuitive UI**: Built with shadcn/ui, offering stylish, highly customizable UI components.
-- **Code Quality Assurance**: Biome handles code checks and formatting automatically before commits. TypeScript type checks are also run to catch potential errors early.
+  <p align="center">
+    <strong>モダンでインタラクティブなグラスモーフィズムUIの実装例</strong>
+  </p>
+</div>
 
-### Technologies Used
-- **Next.js**: A powerful framework for server-side rendering and static site generation.
-- **Bun**: A fast JavaScript runtime for building, executing, and managing packages.
-- **shadcn/ui**: A stylish and modern UI component library.
-- **Tailwind CSS**: A customizable utility-first CSS framework.
-- **TypeScript**: Ensures type safety and reliability.
+## ✨ 特徴
 
-### Scripts
-- `dev`: Starts the development server.
-- `build`: Builds the app for production.
-- `start`: Runs the production build.
-- `check`: Runs Biome for code checks with auto-fixes.
-- `format`: Formats code using Biome.
-- `init:lefthook`: Sets up Lefthook.
+- **🎨 ノイズテクスチャ**: SVG の feTurbulence フィルターを使用した独特な質感
+- **🌗 ダイナミックな背景**: インタラクティブに再生成可能な装飾要素
+- **💎 グラスモーフィズム**: 美しいブラーエフェクトとトランスペアレンシー
+- **📱 レスポンシブ**: あらゆるデバイスで最適な表示を実現
 
-### Lefthook Hooks
-#### pre-commit
-1. **fix**: Formats staged files using Biome and updates the index.
-2. **check**: Runs Biome checks on staged files.
-3. **type**: Runs TypeScript type checks to prevent potential errors.
+## 🚀 デモ
 
-#### pre-push
-1. **check**: Runs Biome checks on staged files.
+[ライブデモを見る](https://line-gradient-card.vercel.app)
+
+## 🛠️ 技術スタック
+
+- **Next.js**: React ベースのフレームワーク
+- **TypeScript**: 型安全な開発環境
+- **Tailwind CSS**: ユーティリティファーストなスタイリング
+- **shadcn/ui**: 美しく再利用可能な UI コンポーネント
+- **Bun**: 高速なパッケージマネージャーとランタイム
+
+## 🎯 使用例
+
+```tsx
+<NoiseGlassCard>
+  <h2>ノイズ付きグラスモーフィズム</h2>
+  <p>
+    SVGのfeTurbulenceフィルターを使用して、
+    すりガラスのような質感を実現したカードです。
+  </p>
+</NoiseGlassCard>
+```
+
+## 📦 インストール
+
+```bash
+# リポジトリのクローン
+git clone git@github.com:imaimai17468/line-gradient-card.git
+
+# 依存関係のインストール
+bun install
+
+# 開発サーバーの起動
+bun dev
+```
+
+## 🔧 スクリプト
+
+- `bun dev`: 開発サーバーの起動
+- `bun build`: プロダクションビルド
+- `bun start`: ビルドしたアプリの起動
+- `bun format`: コードのフォーマット
+- `bun check`: コードの静的チェック
+
+## 📝 ライセンス
+
+MIT © [imaimai17468](https://github.com/imaimai17468)
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/imaimai17468">imaimai17468</a></p>
+</div>

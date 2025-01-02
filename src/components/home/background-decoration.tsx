@@ -1,7 +1,7 @@
 "use client";
 
 import { generateId } from "@/lib/utils/generate-id";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegenerateButton } from "./regenerate-button";
 
 const generateDecorations = () => {
@@ -35,11 +35,19 @@ const generateDecorations = () => {
 };
 
 export function BackgroundDecoration() {
-  const [decorations, setDecorations] = useState(generateDecorations);
+  const [decorations, setDecorations] = useState<ReturnType<typeof generateDecorations> | null>(null);
+
+  useEffect(() => {
+    setDecorations(generateDecorations());
+  }, []);
 
   const handleRegenerate = () => {
     setDecorations(generateDecorations());
   };
+
+  if (!decorations) {
+    return null;
+  }
 
   return (
     <div className="absolute inset-0 overflow-auto">

@@ -37,7 +37,7 @@ export function BackgroundDecoration() {
 
   if (!decorations) {
     return (
-      <div className="absolute inset-0" role="presentation" aria-label="背景を読み込み中">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="animate-pulse bg-background/50 w-full h-full" />
       </div>
     );
@@ -49,7 +49,7 @@ export function BackgroundDecoration() {
         <RegenerateButton onClick={handleRegenerate} />
 
         {/* 図形レイヤー */}
-        <div className="absolute inset-0" role="presentation" aria-label="装飾的な背景図形">
+        <div className="absolute inset-0" aria-hidden="true">
           {decorations.shapes.map((shape) => (
             <BackgroundShape key={shape.id} shape={shape} />
           ))}

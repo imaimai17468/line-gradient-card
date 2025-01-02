@@ -23,15 +23,7 @@ const generateDecorations = () => {
     },
   }));
 
-  const texts = Array.from({ length: 100 }, () => ({
-    id: generateId(),
-    text: ["Glassmorphism", "Modern Design", "UI Elements", "Noise Effect", "Blur Effect"][
-      Math.floor(Math.random() * 5)
-    ],
-    size: ["text-2xl", "text-3xl", "text-4xl"][Math.floor(Math.random() * 3)],
-  }));
-
-  return { shapes, texts };
+  return { shapes };
 };
 
 export function BackgroundDecoration() {
@@ -70,15 +62,6 @@ export function BackgroundDecoration() {
                 left: shape.position.left,
               }}
             />
-          ))}
-        </div>
-
-        {/* テキスト */}
-        <div className="columns-4 gap-4 select-none relative">
-          {decorations.texts.map((text) => (
-            <div key={text.id} className="break-inside-avoid mb-4">
-              <p className={`font-bold opacity-10 ${text.size}`}>{text.text}</p>
-            </div>
           ))}
         </div>
       </div>

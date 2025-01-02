@@ -1,25 +1,22 @@
 "use client";
 
+import { COLORS, ROTATIONS, SIZES } from "@/constants/decoration";
 import { generateId } from "@/lib/utils/generate-id";
-import { useEffect, useState } from "react";
+import { getRandomArrayElement, getRandomNumber } from "@/lib/utils/random";
+import type { Decorations } from "@/types/decoration";
+import { useCallback, useEffect, useState } from "react";
+import { BackgroundShape } from "./background-shape";
 import { RegenerateButton } from "./regenerate-button";
 
-const generateDecorations = () => {
+const generateDecorations = (): Decorations => {
   const shapes = Array.from({ length: 50 }, () => ({
     id: generateId(),
-    color: [
-      "bg-purple-500/40",
-      "bg-blue-500/40",
-      "bg-pink-500/40",
-      "bg-emerald-500/40",
-      "bg-yellow-500/40",
-      "bg-indigo-500/40",
-    ][Math.floor(Math.random() * 6)],
-    size: ["w-24 h-24", "w-32 h-32", "w-40 h-40", "w-48 h-48", "w-56 h-56"][Math.floor(Math.random() * 5)],
-    rotation: ["rotate-0", "rotate-45", "-rotate-45", "rotate-12", "-rotate-12"][Math.floor(Math.random() * 5)],
+    color: getRandomArrayElement(COLORS),
+    size: getRandomArrayElement(SIZES),
+    rotation: getRandomArrayElement(ROTATIONS),
     position: {
-      top: `${Math.floor(Math.random() * 300)}vh`,
-      left: `${Math.floor(Math.random() * 85)}%`,
+      top: `${getRandomNumber(0, 300)}vh`,
+      left: `${getRandomNumber(0, 85)}%`,
     },
   }));
 
@@ -27,18 +24,23 @@ const generateDecorations = () => {
 };
 
 export function BackgroundDecoration() {
-  const [decorations, setDecorations] = useState<ReturnType<typeof generateDecorations> | null>(null);
+  const [decorations, setDecorations] = useState<Decorations | null>(null);
 
-  useEffect(() => {
+  const handleRegenerate = useCallback(() => {
     setDecorations(generateDecorations());
   }, []);
 
-  const handleRegenerate = () => {
-    setDecorations(generateDecorations());
-  };
+  useEffect(() => {
+    const initialDecorations = generateDecorations();
+    setDecorations(initialDecorations);
+  }, []);
 
   if (!decorations) {
-    return null;
+    return (
+      <div className="absolute inset-0" role="presentation" aria-label="背景を読み込み中">
+        <div className="animate-pulse bg-background/50 w-full h-full" />
+      </div>
+    );
   }
 
   return (
@@ -47,21 +49,9 @@ export function BackgroundDecoration() {
         <RegenerateButton onClick={handleRegenerate} />
 
         {/* 図形レイヤー */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0" role="presentation" aria-label="装飾的な背景図形">
           {decorations.shapes.map((shape) => (
-            <div
-              key={shape.id}
-              className={`
-                absolute rounded-lg mix-blend-screen
-                ${shape.color}
-                ${shape.size}
-                ${shape.rotation}
-              `}
-              style={{
-                top: shape.position.top,
-                left: shape.position.left,
-              }}
-            />
+            <BackgroundShape key={shape.id} shape={shape} />
           ))}
         </div>
       </div>

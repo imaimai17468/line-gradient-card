@@ -8,7 +8,7 @@ interface RegenerateButtonProps {
 
 export function RegenerateButton({ onClick }: RegenerateButtonProps) {
   return (
-    <div className="fixed top-8 right-24 z-50">
+    <div className="fixed top-8 right-8 z-50">
       <Button
         variant="outline"
         size="icon"

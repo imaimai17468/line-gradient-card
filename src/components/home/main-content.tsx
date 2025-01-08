@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { NoiseGlassCard } from "@/components/ui/noise-glass-card";
 import { NoiseMetalicCard } from "@/components/ui/noise-metalic-card";
 import { SimpleGlassCard } from "@/components/ui/simple-glass-card";
-import { NOISE_GLASS_CODE } from "@/constants/noise-glass-code";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { NOISE_GLASS_CODE, NOISE_METALIC_CODE } from "@/constants/noise-glass-code";
 import Link from "next/link";
 
 export function MainContent() {
@@ -26,32 +27,34 @@ export function MainContent() {
             {/* 左カラム: カード */}
             <div className="space-y-8">
               <div className="sticky top-8">
-                <SimpleGlassCard className="mb-8">
-                  <h2 className="text-2xl font-bold mb-4">シンプルなグラスモーフィズム</h2>
-                  <p className="mb-4">
-                    基本的なグラスモーフィズム効果を適用したカードです。
-                    backdrop-blurとborder、半透明な背景色のみでシンプルに構成されています。
-                  </p>
-                </SimpleGlassCard>
+                <div className="flex flex-col gap-8">
+                  <SimpleGlassCard className="flex flex-col gap-2">
+                    <h2 className="text-2xl font-bold">シンプルなグラスモーフィズム</h2>
+                    <p>
+                      基本的なグラスモーフィズム効果を適用したカードです。
+                      backdrop-blurとborder、半透明な背景色のみでシンプルに構成されています。
+                    </p>
+                  </SimpleGlassCard>
 
-                <NoiseGlassCard className="mb-8">
-                  <h2 className="text-2xl font-bold mb-4">ノイズ付きグラスモーフィズム</h2>
-                  <p>
-                    SVGのfeTurbulenceフィルターを使用して、 すりガラスのような質感を実現したカードです。
-                    ノイズテクスチャが特徴的です。
-                  </p>
-                </NoiseGlassCard>
+                  <NoiseGlassCard className="flex flex-col gap-2">
+                    <h2 className="text-2xl font-bold">ノイズ付きグラスモーフィズム</h2>
+                    <p>
+                      SVGのfeTurbulenceフィルターを使用して、 すりガラスのような質感を実現したカードです。
+                      ノイズテクスチャが特徴的です。
+                    </p>
+                  </NoiseGlassCard>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <NoiseMetalicCard>
-                    <h2 className="text-2xl font-bold mb-2">メタリックカード</h2>
-                    <p>金属的な質感を実現したカードデザイン</p>
-                  </NoiseMetalicCard>
+                  <div className="grid grid-cols-2 gap-4">
+                    <NoiseMetalicCard className="flex flex-col gap-2">
+                      <h2 className="text-2xl font-bold">メタリックカード</h2>
+                      <p>金属的な質感を実現したカードデザイン</p>
+                    </NoiseMetalicCard>
 
-                  <BorderMetalicCard>
-                    <h2 className="text-2xl font-bold mb-2">メタリックボーダーカード</h2>
-                    <p>洗練された印象のボーダーデザイン</p>
-                  </BorderMetalicCard>
+                    <BorderMetalicCard className="flex flex-col gap-2">
+                      <h2 className="text-2xl font-bold">メタリックボーダーカード</h2>
+                      <p>洗練された印象のボーダーデザイン</p>
+                    </BorderMetalicCard>
+                  </div>
                 </div>
               </div>
             </div>
@@ -60,13 +63,31 @@ export function MainContent() {
             <div className="space-y-8">
               <div className="sticky top-8">
                 <SimpleGlassCard>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex flex-col gap-4">
                     <h2 className="text-2xl font-bold">実装コード</h2>
-                    <CopyButton code={NOISE_GLASS_CODE} />
+                    <Tabs defaultValue="glass" className="w-full">
+                      <TabsList>
+                        <TabsTrigger value="glass">Glass</TabsTrigger>
+                        <TabsTrigger value="metalic">Metalic</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="glass" className="flex flex-col gap-2">
+                        <div className="flex justify-end">
+                          <CopyButton code={NOISE_GLASS_CODE} />
+                        </div>
+                        <pre className="overflow-x-auto p-4 rounded-lg bg-black/20 text-sm">
+                          <code>{NOISE_GLASS_CODE}</code>
+                        </pre>
+                      </TabsContent>
+                      <TabsContent value="metalic" className="flex flex-col gap-2">
+                        <div className="flex justify-end">
+                          <CopyButton code={NOISE_METALIC_CODE} />
+                        </div>
+                        <pre className="overflow-x-auto p-4 rounded-lg bg-black/20 text-sm">
+                          <code>{NOISE_METALIC_CODE}</code>
+                        </pre>
+                      </TabsContent>
+                    </Tabs>
                   </div>
-                  <pre className="overflow-x-auto p-4 rounded-lg bg-black/20 text-sm">
-                    <code>{NOISE_GLASS_CODE}</code>
-                  </pre>
                 </SimpleGlassCard>
               </div>
             </div>

@@ -3,7 +3,12 @@ import { Button } from "@/components/ui/button";
 import { NoiseGlassCard } from "@/components/ui/noise-glass-card";
 import { SimpleGlassCard } from "@/components/ui/simple-glass-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { NOISE_GLASS_CODE, NOISE_METALIC_CODE } from "@/constants/noise-glass-code";
+import {
+  NOISE_GLASS_CODE,
+  NOISE_METALIC_CODE,
+  NOISE_METALIC_CSS,
+  NOISE_METALIC_FULL,
+} from "@/constants/noise-glass-code";
 import Link from "next/link";
 import { MetalicSection } from "./metalic-section";
 
@@ -69,11 +74,24 @@ export function MainContent() {
                       </TabsContent>
                       <TabsContent value="metalic" className="flex flex-col gap-2">
                         <div className="flex justify-end">
-                          <CopyButton code={NOISE_METALIC_CODE} />
+                          <CopyButton code={NOISE_METALIC_FULL} />
                         </div>
-                        <pre className="overflow-x-auto p-4 rounded-lg bg-black/20 text-sm">
-                          <code>{NOISE_METALIC_CODE}</code>
-                        </pre>
+                        <Tabs defaultValue="component">
+                          <TabsList className="w-full grid grid-cols-2">
+                            <TabsTrigger value="component">Component</TabsTrigger>
+                            <TabsTrigger value="css">CSS</TabsTrigger>
+                          </TabsList>
+                          <TabsContent value="component">
+                            <pre className="overflow-x-auto p-4 rounded-lg bg-black/20 text-sm">
+                              <code>{NOISE_METALIC_CODE}</code>
+                            </pre>
+                          </TabsContent>
+                          <TabsContent value="css">
+                            <pre className="overflow-x-auto p-4 rounded-lg bg-black/20 text-sm">
+                              <code>{NOISE_METALIC_CSS}</code>
+                            </pre>
+                          </TabsContent>
+                        </Tabs>
                       </TabsContent>
                     </Tabs>
                   </div>

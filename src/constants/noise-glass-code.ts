@@ -97,3 +97,27 @@ export function NoiseMetalicCard({ className, children, ...props }: NoiseGlassCa
     </div>
   );
 }`;
+
+export const NOISE_METALIC_CSS = `@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0turn;
+  inherits: false;
+}
+
+@keyframes gradient-angle {
+  0% {
+    --gradient-angle: 0turn;
+  }
+  100% {
+    --gradient-angle: 1turn;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-angle 2s infinite linear;
+}`;
+
+export const NOISE_METALIC_FULL = `${NOISE_METALIC_CODE}
+
+/* styles.css */
+${NOISE_METALIC_CSS}`;

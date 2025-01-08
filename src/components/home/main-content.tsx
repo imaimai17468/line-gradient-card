@@ -1,12 +1,11 @@
 import { CopyButton } from "@/components/copy-button";
-import { BorderMetalicCard } from "@/components/ui/border-metalic-card";
 import { Button } from "@/components/ui/button";
 import { NoiseGlassCard } from "@/components/ui/noise-glass-card";
-import { NoiseMetalicCard } from "@/components/ui/noise-metalic-card";
 import { SimpleGlassCard } from "@/components/ui/simple-glass-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NOISE_GLASS_CODE, NOISE_METALIC_CODE } from "@/constants/noise-glass-code";
 import Link from "next/link";
+import { MetalicSection } from "./metalic-section";
 
 export function MainContent() {
   return (
@@ -44,17 +43,7 @@ export function MainContent() {
                     </p>
                   </NoiseGlassCard>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <NoiseMetalicCard className="flex flex-col gap-2">
-                      <h2 className="text-2xl font-bold">メタリックカード</h2>
-                      <p>金属的な質感を実現したカードデザイン</p>
-                    </NoiseMetalicCard>
-
-                    <BorderMetalicCard className="flex flex-col gap-2">
-                      <h2 className="text-2xl font-bold">メタリックボーダーカード</h2>
-                      <p>洗練された印象のボーダーデザイン</p>
-                    </BorderMetalicCard>
-                  </div>
+                  <MetalicSection />
                 </div>
               </div>
             </div>

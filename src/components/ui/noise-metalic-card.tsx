@@ -5,12 +5,18 @@ import "./noise-metalic-card.css";
 interface NoiseGlassCardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: React.ReactNode;
+  animated?: boolean;
 }
 
-export function NoiseMetalicCard({ className, children, ...props }: NoiseGlassCardProps) {
+export function NoiseMetalicCard({ className, children, animated, ...props }: NoiseGlassCardProps) {
   return (
     <div
-      className={cn("relative overflow-hidden rounded-xl p-6", "backdrop-blur-md", "animate-gradient", className)}
+      className={cn(
+        "relative overflow-hidden rounded-xl p-6",
+        "backdrop-blur-md",
+        animated && "animate-gradient",
+        className,
+      )}
       style={
         {
           "--gradient-angle": "0turn",

@@ -1,6 +1,8 @@
 import { CopyButton } from "@/components/copy-button";
+import { BorderMetalicCard } from "@/components/ui/border-metalic-card";
 import { Button } from "@/components/ui/button";
 import { NoiseGlassCard } from "@/components/ui/noise-glass-card";
+import { NoiseMetalicCard } from "@/components/ui/noise-metalic-card";
 import { SimpleGlassCard } from "@/components/ui/simple-glass-card";
 import { NOISE_GLASS_CODE } from "@/constants/noise-glass-code";
 import Link from "next/link";
@@ -32,13 +34,25 @@ export function MainContent() {
                   </p>
                 </SimpleGlassCard>
 
-                <NoiseGlassCard>
+                <NoiseGlassCard className="mb-8">
                   <h2 className="text-2xl font-bold mb-4">ノイズ付きグラスモーフィズム</h2>
-                  <p className="mb-4">
+                  <p>
                     SVGのfeTurbulenceフィルターを使用して、 すりガラスのような質感を実現したカードです。
                     ノイズテクスチャが特徴的です。
                   </p>
                 </NoiseGlassCard>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <NoiseMetalicCard>
+                    <h2 className="text-2xl font-bold mb-2">メタリックカード</h2>
+                    <p>金属的な質感を実現したカードデザイン</p>
+                  </NoiseMetalicCard>
+
+                  <BorderMetalicCard>
+                    <h2 className="text-2xl font-bold mb-2">メタリックボーダーカード</h2>
+                    <p>洗練された印象のボーダーデザイン</p>
+                  </BorderMetalicCard>
+                </div>
               </div>
             </div>
 

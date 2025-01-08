@@ -1,9 +1,9 @@
 "use client";
 
-import { BorderMetalicCard } from "@/components/ui/border-metalic-card";
-import { NoiseMetalicCard } from "@/components/ui/noise-metalic-card";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
+import { BorderMetalicCard } from "../ui/metalic/border-metalic-card";
+import { NoiseMetalicCard } from "../ui/metalic/noise-metalic-card";
 
 export function MetalicSection() {
   const [isAnimated, setIsAnimated] = useState(false);
